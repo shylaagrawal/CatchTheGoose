@@ -1,12 +1,12 @@
 # Catch The Goose
 // A game in which you have to use your arrow keys to move a bucket to catch a falling goose... but there's more
 
-**Author**: Shyla Agrawal  
+### **Author**: Shyla Agrawal  
 **Date**: June 30, 2024  
 **Technology Stack**: JavaScript (p5.js), HTML, CSS
 
 ## Description
-"Catch the Goose" is a multi-level browser-based game developed in p5.js. The game follows Gerald, a goose, through a series of 
+**"Catch the Goose"** is a multi-level browser-based game developed in p5.js. The game follows Gerald, a goose, through a series of 
 increasingly challenging scenarios involving reflex-based mechanics, timed interactions, basic arithmetic, and dynamic obstacle 
 evasion. Each level introduces new game logic, input methods, and visual and audio elements. The project was originally intended to 
 demonstrate my skill of event-driven programming, animation, and multimedia integration in web-based JavaScript environments.
