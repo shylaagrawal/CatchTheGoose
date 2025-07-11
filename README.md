@@ -1,4 +1,4 @@
-# CatchTheGoose
+# Catch The Goose
 // A game in which you have to use your arrow keys to move a bucket to catch a falling goose... but there's more
 
 **Author**: Shyla Agrawal  
@@ -11,6 +11,7 @@ increasingly challenging scenarios involving reflex-based mechanics, timed inter
 evasion. Each level introduces new game logic, input methods, and visual and audio elements. The project was originally intended to 
 demonstrate my skill of event-driven programming, animation, and multimedia integration in web-based JavaScript environments.
 
+---
 
 ## Features
 - Multi-stage gameplay with increasing difficulty
