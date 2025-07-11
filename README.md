@@ -3,7 +3,7 @@
 
 **Author**: Shyla Agrawal  
 **Date**: June 30, 2024  
-**Technology Stack**: JavaScript (p5.js), HTML, CSS (optional)
+**Technology Stack**: JavaScript (p5.js), HTML, CSS
 
 ## Description
 "Catch the Goose" is a multi-level browser-based game developed in p5.js. The game follows Gerald, a goose, through a series of 
