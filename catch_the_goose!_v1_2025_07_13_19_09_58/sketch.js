@@ -21,12 +21,12 @@ let live1;
 let live2;
 let live3;
 let checkedLives = true;
+let checkedScore = true;
 let gameFont;
 let bkgMusic;
 
 function setup() {
   createCanvas(400, 400);
-  bkgMusic.play();
 }
 
 function preload(){
@@ -40,23 +40,31 @@ function preload(){
   gooseMissed = loadSound('assets/missed.wav')
   gameFont = loadFont('assets/IBMPlex.ttf')
   accentFont = loadFont('assets/accentfont.ttf')
-  bkgMusic = loadSound('assets/bkgmusic.mp3')
   live1 = heart
   live2 = heart
   live3 = heart
 }
 
 function mousePressed(){
+  
   console.log(mouseX, mouseY)
 }
 
 function draw() {
-  //drawing background
+  //drawing background and text
   background(0);
+  fill(225);
+  textAlign(CENTER)
+  textFont(gameFont)
+  text("Score: " + score, 200, 200)
+  text("Catch 30 geese to win :)", 200, 50)
   
-  
-  //drawing the bucket
+  //drawing hearts, the goose, and the bucket
   imageMode(CENTER)
+  image(live1, 185, 215, 20, 20)
+  image(live2, 200, 215, 20, 20)
+  image(live3, 215, 215, 20, 20)
+  image(goose, randValueX, y, 70, 70)
   image(bucket, x, 370, 60, 60)
   
   //making the bucket move with arrow keys
@@ -74,40 +82,25 @@ function draw() {
     randValueX = Math.floor(random(400))
     fallRate += 0.15
     checkedLives = true
+    checkedScore = true
   }
   
-  //changing lives and scores and the sounds for missed/caught
+  //changing lives and scores
+  //the sounds for missed/caught
   if (y > 350) {
-    if (x <= randValueX + 30 && x >= randValueX - 30) {
+    if (x <= randValueX + 30 && x >= randValueX - 30 && checkedScore) {
       score += 1
       gooseCaught.play();
-      background(0)
-      image(headPeeking, randValueX, 370, 60, 60)
+      //background(0);
+      image(headPeeking, randValueX, y, 70, 70)
+      checkedScore = false
     }  
     else if ((x >= randValueX + 30 || x <= randValueX - 30) && checkedLives) {
       lives -= 1
       gooseMissed.play()
-      checkedLives = false;
+      checkedLives = false
     }
   }
-  
-  else {
-  //the amazing goose himself
-  image(goose, randValueX, y, 70, 70)
-  }
-  
-  //drawing text for rules and score
-  fill(225);
-  textAlign(CENTER)
-  textFont(gameFont)
-  text("Score: " + score, 200, 200)
-  text("Catch 30 geese to win :)", 200, 50)
-  
-  //drawingf hearts
-  image(live1, 185, 215, 20, 20)
-  image(live2, 200, 215, 20, 20)
-  image(live3, 215, 215, 20, 20)
-
   
   //making sure the speed doesnt become too fast
   if (fallRate > 5) {
@@ -140,7 +133,7 @@ function draw() {
   }
   
   //if you win!
-  if(score >= 300000) {
+  if(score >= 30) {
     clear();
     background(0);
     fallRate = 0
@@ -148,6 +141,7 @@ function draw() {
     textSize(50)
     text("You Won!", 200, 150)
     image(headPeeking, 200, 200, 70, 70)
+    
   }
   
   //if you lose!
